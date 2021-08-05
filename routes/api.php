@@ -9,7 +9,8 @@ Route::get('/', function(){
 
 
 Route::get('/test', function() {
-    CompanyCreatedJob::dispatch('teste2@email.com');
+    CompanyCreatedJob::dispatch('teste2@email.com')
+        ->onQueue('queue_micro_email');
 
     return response()->json(['message' => 'success']);
 });
